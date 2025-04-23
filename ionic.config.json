@@ -1,0 +1,7 @@
+{
+  "name": "RentATruck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
