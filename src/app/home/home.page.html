@@ -1,20 +1,56 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="hero-section">
+    <ion-img src="https://eu-images.contentstack.com/v3/assets/blt4a147f9e36f0754a/blt446c1649a2b43534/651ffcdb17398942a0e5880e/BTR_20Logo_Horiz_BLK_20_20Blue.jpg?width=1280&auto=webp&quality=95&format=jpg&disable=upscale" alt="Truck rental"></ion-img>
+    <div class="hero-text">
+      <h1>Big Truck Rentals</h1>
+      <p>Moving made simple with our reliable fleet</p>
+      <ion-button (click)="navigateToVehicles()" shape="round">Book Now</ion-button>
+    </div>
   </div>
-</ion-content>
+
+  <ion-grid class="features-section">
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-icon name="car-outline" color="primary"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Wide Selection</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Choose from our variety of vehicles for any moving need
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-icon name="cash-outline" color="primary"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Affordable Rates</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Competitive pricing with no hidden fees
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-icon name="time-outline" color="primary"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>24/7 Support</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Our team is always ready to assist you
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

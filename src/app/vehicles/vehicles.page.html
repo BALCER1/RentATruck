@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Our Vehicles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Select Your Vehicle</ion-label>
+    </ion-list-header>
+    
+    <ion-radio-group [(ngModel)]="selectedVehicle" (ionChange)="selectVehicle($event.detail.value)">
+      <ion-item *ngFor="let vehicle of vehicles">
+        <ion-radio slot="start" [value]="vehicle"></ion-radio>
+        <ion-label>
+          <h2>{{ vehicle.name }}</h2>
+          <p>{{ vehicle.capacity }} • ${{ vehicle.pricePerDay }}/day</p>
+          <ion-chip *ngFor="let feature of vehicle.features" outline color="primary">
+            <ion-label>{{ feature }}</ion-label>
+          </ion-chip>
+        </ion-label>
+        <ion-thumbnail slot="end">
+          <img [src]="vehicle.image" [alt]="vehicle.name">
+        </ion-thumbnail>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-list *ngIf="selectedVehicle">
+    <ion-list-header>
+      <ion-label>Rental Details</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Pickup Date</ion-label>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime 
+            id="datetime" 
+            [(ngModel)]="pickupDate"
+            presentation="date"
+            showDefaultButtons
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Rental Duration (Days)</ion-label>
+      <ion-range 
+        [(ngModel)]="rentalDays" 
+        min="1" 
+        max="30" 
+        pin="true"
+        snaps="true"
+        ticks="true"
+      >
+        <ion-label slot="start">1</ion-label>
+        <ion-label slot="end">30</ion-label>
+      </ion-range>
+      <ion-badge slot="end" color="primary">{{ rentalDays }}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estimated Total</ion-label>
+      <ion-text color="primary">
+        <h2>${{ calculateTotal() | number:'1.2-2' }}</h2>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-button 
+    expand="block" 
+    color="primary" 
+    (click)="confirmBooking()"
+    [disabled]="!selectedVehicle"
+    class="ion-margin-top"
+  >
+    Continue to Booking
+  </ion-button>
+</ion-content>

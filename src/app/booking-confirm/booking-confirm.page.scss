@@ -1,0 +1,91 @@
+.booking-confirm-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    ion-card {
+      width: 100%;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      ion-card-header {
+        text-align: center;
+        padding-bottom: 0;
+        
+        ion-card-title {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--ion-color-primary);
+          margin-bottom: 8px;
+        }
+        
+        ion-card-subtitle {
+          color: var(--ion-color-medium);
+          font-size: 1.1rem;
+        }
+      }
+      
+      ion-card-content {
+        ion-list {
+          background: transparent;
+          
+          ion-item {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            --min-height: 48px;
+            
+            ion-label {
+              font-weight: 500;
+              color: var(--ion-color-medium);
+            }
+            
+            ion-text {
+              color: var(--ion-color-dark);
+              font-weight: 500;
+            }
+          }
+        }
+        
+        .success-icon {
+          text-align: center;
+          margin: 24px 0;
+          
+          ion-icon {
+            font-size: 64px;
+            color: var(--ion-color-success);
+            background: rgba(var(--ion-color-success-rgb), 0.1);
+            padding: 16px;
+            border-radius: 50%;
+          }
+        }
+        
+        .confirmation-message {
+          text-align: center;
+          margin: 16px 0 24px;
+          color: var(--ion-color-medium);
+          line-height: 1.6;
+        }
+      }
+    }
+    
+    .action-buttons {
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      
+      ion-button {
+        flex: 1;
+      }
+    }
+  }

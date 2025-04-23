@@ -1,3 +1,44 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <!-- Side Menu -->
+  <ion-menu menuId="main-menu" contentId="main-content" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button [routerLink]="['/home']" routerDirection="root">
+          <ion-icon name="home" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <ion-item button [routerLink]="['/vehicles']" routerDirection="root">
+          <ion-icon name="car" slot="start"></ion-icon>
+          <ion-label>Vehicles</ion-label>
+        </ion-item>
+        <ion-item button [routerLink]="['/about']" routerDirection="root">
+          <ion-icon name="information-circle" slot="start"></ion-icon>
+          <ion-label>About</ion-label>
+        </ion-item>
+        <ion-item button [routerLink]="['/login']" routerDirection="root">
+          <ion-icon name="log-in" slot="start"></ion-icon>
+          <ion-label>Login</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main App Shell -->
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <!-- Let Ionic handle the menu toggle -->
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Truck Rentals</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

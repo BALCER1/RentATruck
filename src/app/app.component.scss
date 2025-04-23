@@ -1,0 +1,57 @@
+/* Menu styles */
+ion-menu {
+    --width: 280px;
+    
+    ion-header {
+      ion-toolbar {
+        --background: var(--ion-color-primary);
+        --color: white;
+      }
+    }
+    
+    ion-content {
+      --background: #f8f9fa;
+      
+      ion-list {
+        background: transparent;
+        padding: 8px 0;
+        
+        ion-item {
+          --background: transparent;
+          --padding-start: 16px;
+          --padding-end: 16px;
+          --min-height: 56px;
+          --border-radius: 8px;
+          margin: 4px 8px;
+          
+          ion-icon {
+            color: var(--ion-color-primary);
+            margin-right: 16px;
+          }
+          
+          &:hover {
+            --background: rgba(var(--ion-color-primary-rgb), 0.08);
+          }
+        }
+      }
+    }
+  }
+  
+  /* Header styles */
+  ion-header {
+    ion-toolbar {
+      --background: var(--ion-color-primary);
+      --color: white;
+      
+      ion-button {
+        --color: white;
+      }
+    }
+  }
+  
+  /* Content area */
+  ion-router-outlet {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }

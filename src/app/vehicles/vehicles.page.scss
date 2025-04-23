@@ -1,0 +1,111 @@
+.vehicles-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    .vehicle-selection {
+      ion-list {
+        background: transparent;
+        
+        ion-radio-group {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 16px;
+          
+          ion-item {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            --border-radius: 12px;
+            margin: 0;
+            border: 1px solid var(--ion-color-light-shade);
+            transition: all 0.3s ease;
+            
+            &:hover {
+              border-color: var(--ion-color-primary);
+              box-shadow: 0 4px 12px rgba(var(--ion-color-primary-rgb), 0.1);
+            }
+            
+            &[aria-checked="true"] {
+              border: 2px solid var(--ion-color-primary);
+              background: rgba(var(--ion-color-primary-rgb), 0.05);
+            }
+            
+            ion-radio {
+              margin: 16px;
+              --color-checked: var(--ion-color-primary);
+            }
+            
+            ion-label {
+              h2 {
+                font-weight: 600;
+                color: var(--ion-color-dark);
+              }
+              
+              p {
+                color: var(--ion-color-medium);
+                margin: 4px 0 8px;
+              }
+            }
+            
+            ion-thumbnail {
+              --size: 100px;
+              --border-radius: 8px;
+              margin: 8px;
+              
+              img {
+                border-radius: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .rental-details {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      
+      ion-item {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+        --min-height: 56px;
+        
+        ion-range {
+          padding-top: 0;
+          padding-bottom: 0;
+          
+          &::part(pin) {
+            background: var(--ion-color-primary);
+            color: white;
+            transform: scale(1.01);
+            padding: 4px 8px;
+          }
+        }
+        
+        ion-badge {
+          font-size: 1rem;
+          padding: 8px 12px;
+        }
+      }
+      
+      .total-display {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+        border-top: 1px solid var(--ion-color-light-shade);
+        margin-top: 8px;
+        
+        ion-text {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    .confirm-button {
+      margin-top: 32px;
+    }
+  }

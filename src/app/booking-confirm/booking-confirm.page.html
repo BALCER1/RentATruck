@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Booking Confirmed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngIf="vehicle">
+    <img [src]="vehicle.image" [alt]="vehicle.name">
+    <ion-card-header>
+      <ion-card-title>Booking Confirmation</ion-card-title>
+      <ion-card-subtitle>Thank you for your reservation!</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Vehicle</ion-label>
+          <ion-text slot="end">{{ vehicle.name }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pickup Date</ion-label>
+          <ion-text slot="end">{{ formatDate(pickupDate) }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Rental Duration</ion-label>
+          <ion-text slot="end">{{ rentalDays }} day{{ rentalDays > 1 ? 's' : '' }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total Cost</ion-label>
+          <ion-text slot="end" color="primary">${{ total | number:'1.2-2' }}</ion-text>
+        </ion-item>
+      </ion-list>
+
+      <ion-button 
+        expand="block" 
+        color="primary" 
+        (click)="newBooking()"
+        class="ion-margin-top"
+      >
+        Make Another Reservation
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
