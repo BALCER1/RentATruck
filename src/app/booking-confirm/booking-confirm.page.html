@@ -27,14 +27,17 @@
         </ion-item>
         <ion-item>
           <ion-label>Rental Duration</ion-label>
+            <!-- Display duration in days with pluralization logic -->
           <ion-text slot="end">{{ rentalDays }} day{{ rentalDays > 1 ? 's' : '' }}</ion-text>
         </ion-item>
         <ion-item>
-          <ion-label>Total Cost</ion-label>
+          <ion-label>Total Cost</ion-label>   
+           <!-- Format total cost to 2 decimal places and style it -->
           <ion-text slot="end" color="primary">${{ total | number:'1.2-2' }}</ion-text>
         </ion-item>
       </ion-list>
 
+      <!-- Button to make a new booking -->
       <ion-button 
         expand="block" 
         color="primary" 
